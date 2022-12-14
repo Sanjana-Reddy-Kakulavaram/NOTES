@@ -1,0 +1,18 @@
+lively -> full of life
+
+Back tracking:
+ -> filling paths
+	1. fill array
+	2. fill matrix
+backtrack(pos)
+  if(isInvalid(pos)) 
+	return
+  if(isVisited(pos))
+	return
+  path[pos] = fillValue;  //Step forward
+  if(solved)  => (fillValue == r*c-1)
+	return true
+  for nextPos from pos:
+	if(backtrack(nextPos))
+	  return true;
+  path[pos] = 0;          //Step backward (backtracking)

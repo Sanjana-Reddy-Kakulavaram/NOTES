@@ -1,0 +1,162 @@
+Take List/Vector of size N+1
+g = []
+vector< vector<int> > g;
+g[0] ===> Empty List
+
+1 <= N <= 10^5
+8 4
+1 2
+2 3
+5 4
+7 6
+
+g[0]: 
+g[1]: 2
+g[2]: 1 3
+g[3]: 2
+g[4]: 5
+g[5]: 4
+g[6]: 7
+g[7]: 6
+g[8]: 
+
+vector<int> visited(100001);
+
+void bfs(int s, vector< vector<int> > &g){
+	queue<int> q;
+	q.push(s);
+	visited[s] = 1;
+
+	// E
+	while(!q.empty()){
+		s = q.front(); q.pop();
+		vector<int> ns = g[s];
+		for(auto ng: ns){
+			if(visited[ng]==0){
+				visited[ng] = 1;
+				q.push(ng);
+			}
+		}
+	}
+}
+
+// E
+// e1 + e2 + .... + eV = E
+void dfs(int s, vector< vector<int> > &g){
+	if(visited[s]) return;
+	visited[s] = 1;
+	vector<int> ns = g[s];
+	for(auto ng: ns)    /// V-1
+		dfs(ng, g);
+}
+int countComponents(vector< vector<int> > &g, int nv){
+	int c = 0;
+	for(int i = 1; i<= nv; i++){
+		if(!visited[i]){
+			xfs(i, g);
+			c++;
+		}
+	}
+	return c;
+}
+
+TC:  O(V + E)
+
+
+
+int minSteps(vector< vector<int> > &g, int nv, int s, int d){
+	int dist[nv+1];  // INF
+	dist[s] = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+void dfs(pos){
+	if(visited[pos]) return;
+	visited[pos] = 1;
+
+	for(auto npos: pos)    /// V-1
+		dfs(npos);
+}
+
+
+DSU - Disjoint Set Union
+                1    2     3
+parent[] =      1    2     3
+
+
+JOIN u v    
+    ru = findroot(u)
+	rv = findroot(v)
+	parent[ru] = rv
+
+u = 1
+v = 2
+                1    2     3
+parent[] =      2    2     3
+
+QUERY u v
+	ru = findRoot(u)
+	rv = findRoot(v)
+	return ru == rv
+
+
+JOIN 1 3
+u = 1, v = 3
+ru = 2,  rv = 3
+parent[ru] = rv
+parent[2] = 3
+
+
+                1    2     3
+parent[] =      2    3     3
+
+struct DSU{
+	vector<int> parent;
+	int comp;
+	DSU(int n){
+		parent.assign(n+1);
+		for(int i = 0 ;i <= n;i++)
+			parent[i]= i;
+		comp = n;
+	}
+	int findRoot(int u){
+		if(u == parent[u])
+			return u;
+		return parent[u] = findRoot(parent[u]); // Path Compression
+	}
+	void doUnion(int u, int v){
+		int ru = findRoot(u);
+		int rv = findRoot(v);
+		if(ru != rv){
+			comp -= 1;
+			parent[ru] = rv;
+		}
+	}
+
+	bool doFind(int u, int v){
+		int ru = findRoot(u);
+		int rv = findRoot(v);
+		return ru == rv;
+	}
+
+	int getComponentsCount(){
+		return comp;
+	}
+};
+
+
+
+
+
+1     2       3
+
+3   3         3

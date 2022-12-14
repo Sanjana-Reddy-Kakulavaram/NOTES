@@ -1,0 +1,86 @@
+react supports one way data-binding using props
+
+1) DOM and Virtual DOM
+2) Functional and Class Components
+3) Passing Parameters Without Props and with Props
+4) Using Props in Functional
+
+
+08-12-2021
+
+State Management
+----------------
+props are used to transfer data from 1 component to another component
+props are immutable
+
+state is pre-defined, we just need to use
+construct is best place to initialize state
+
+state holds data inside a component
+use constructor to create a state
+use super() to make a request to parent(React) for state
+to access we use this.state in an object
+setState(command) is used to change the value of the state
+
+JSON.stringify ==> should be used for displaying boolean values since react does not directly display them so we need to convert bools to strings
+
+Assignment:
+in StateEx component :
+(Using State and Props combinedly)create another component StatePrint and receive data using props fron StateEx and then print the details in StatePrint
+
+
+--------------------------------
+
+Session 6
+
+REDUX:
+
+-> It is a third party library 
+-> Used for state management
+
+Terminologies and meanings 
+
+-> Store == entire container
+-> Reducer == logic performing on data
+-> Dispatch == sending request from client to server
+-> Subscribe == receive the data from client
+-> Dispatch request is taken by reducer and reducer performs the request and updates the data
+
+npm install redux --save ==> command to install redux
+
+//we should create dummy state, ans should not alter original state
+
+
+npm install -g create-react-app
+ccreate-react-app react-redx-app
+npm install redux react-redux --save
+
+MIDDLEWARE
+
+-> traps the request/actions which are dispatched already before reaching to reducer
+-> when action is performed it captures that action and verifies the action
+-> if the action is performed without any errors then it is updated in the store otherwise it is not updated in the store
+
+-> we use (apply middleware)
+
+
+SPA (routing)
+
+-> Single Page Apllication
+-> loading one component into another component without reloading the entire page
+-> In react "react-router-dom" module is used to implement SPA
+-> npm install react-router-dom --save  ==> to install react-router-dom module
+
+
+
+
+
+
+
+
+
+
+
+
+
+

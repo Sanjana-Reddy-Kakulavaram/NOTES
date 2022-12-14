@@ -1,0 +1,19 @@
+FLOYD-WARSHALL ALGORITHM:
+
+ -  Finding shortest path in the graph
+ -  shortest path between all pairs of vertices, negative edges allowed
+
+Pseudo code
+
+let v = number of vertices in graph
+let dist = V*V array of minimum distance
+for each vertex v
+  dist[v][v] <- 0
+for each edge (u, v)
+  dist[u][v] <- weight(u, v)
+for k from 1 to v
+  for i from 1 to v
+    for j from 1 to v
+      if dist[i][j] > dist[i][k] + dist[k][j]
+	dist[i][j] <- dist[i][k] + dist[k][j]		 
+      end if

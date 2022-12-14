@@ -1,0 +1,9 @@
+git configuration:
+Create folder in pc
+open cmd in that folder location 
+run the commands :
+git config --global user.name "Kakulavaram Sanjana"
+git config --global user.email "19wh1a1219@bvrithyderabad.edu.in"
+git config --global --list
+copy http url of created project from gitlab
+git commit -m "your message" //to add comment
